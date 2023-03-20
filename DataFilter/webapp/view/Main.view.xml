@@ -1,0 +1,67 @@
+<mvc:View
+	controllerName="com.myorg.filterapp.controller.Main"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page>
+	<FlexBox id="fbox" alignItems="Center" justifyContent="Center">
+	<ComboBox id="combobox" items="{cm_model>/}" class="combobox1">
+	<core:Item key="{cm_model>key}" text="{cm_model>value}" /></ComboBox>
+	<Input id="search_value" placeholder="Value" class="test1"> </Input>
+  <CheckBox id="shuffleCheckbox" select="handleShuffleCheckboxSelection" text="Shuffle" />
+	<Button icon="sap-icon://customize" type="Transparent" text="Filter" press = "filter_fonk" class="filter"></Button>
+	<Text text ="{cm_model>key}"></Text>
+	</FlexBox>
+	
+	<mvc:View controllerName= "Main.controller.ts" xmlns="sap.m" xmlns:mvc = "sap.ui.core.mvc">
+
+    
+   <VBox id="VBTable" alignItems="Center" justifyContent="Center" >
+	<Table id="table" items="{/}" width="1000px" >
+		<headerToolbar>
+      <Toolbar>
+        <Title text="Project Ceylin"/>
+      </Toolbar>
+    </headerToolbar>
+    <columns>
+      <Column width="10%" hAlign = "Center">
+        <Button text="ID" icon = "sap-icon://general-leave-request" press = "filter_remaining" id="filter_id" type="Reject"></Button>
+      </Column>
+      <Column width="10%" hAlign = "Center">
+        <Button text="Username" icon = "sap-icon://general-leave-request" press = "filter_remaining" id="filter_username" type="Reject"></Button>
+      </Column>
+      <Column width="10%" hAlign = "Center">
+        <Button text="Name" icon = "sap-icon://general-leave-request" press = "filter_remaining" id="filter_name" type="Reject"></Button>
+      </Column>
+	   <Column width="10%" hAlign = "Center" >
+        <Button text="Surname" icon = "sap-icon://general-leave-request" press = "filter_remaining" id="filter_surname" type="Reject"></Button>
+      </Column>
+      <Column width="15%" hAlign = "Center">
+        <Button text="Email" icon = "sap-icon://general-leave-request" press = "filter_remaining" id="filter_email" type="Reject"></Button>
+      </Column>
+      <Column width="10%" hAlign = "Center">
+        <Button text="Gender" icon = "sap-icon://general-leave-request" press = "filter_remaining" id="filter_gender" type="Reject"></Button>
+      </Column>
+      <Column width ="10%" hAlign = "Center">
+        <Button text="Delete" icon = "sap-icon://delete"  id="delete" type="Reject"></Button>
+      </Column>
+       </columns>
+       <items>
+       <ColumnListItem>
+        <cells>
+          <Text text="{id}"/>
+          <Text text="{username}"/>
+          <Text text="{name}"/>
+		      <Text text="{surname}"/>
+          <Text text="{email}"/>
+          <Text text="{gender}"/>
+          <Button id="deleteid" icon="sap-icon://delete" press="handleDelete" text="Delete" type="Reject"></Button>
+        </cells>
+      </ColumnListItem>
+    </items>
+	  </Table>
+   </VBox>
+	</mvc:View>
+	</Page>
+</mvc:View>

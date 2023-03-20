@@ -1,0 +1,21 @@
+<core:FragmentDefinition controllerName="com.myorg.filterapp.controller.Main"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    
+    <Dialog title = "Filter" id ="dg_id" >
+    <l:Grid defaultSpan = "L12 M12 S12" width = "auto" id = "idGrid">
+    <l:content>
+       <Text id = "TextField" text="Please chose a value from combobox"></Text>
+        <ComboBox id="filteredbox" items = "{fm_model>/items}" >
+        <core:Item key = "{fm_model>key}" text= "{fm_model>key}" /></ComboBox>
+        <Input visible="{=${fm_model>/visible} === true }" id="filter_value" placeholder="Value" > </Input>
+
+    </l:content>
+    </l:Grid>
+    <Button text = "Filter" press="afterFilter" class ="filter" icon="sap-icon://accept" type="Accept"></Button>
+    <Button text = "Close" press="onClose" icon="sap-icon://decline" type="Reject"></Button>
+    </Dialog>
+</core:FragmentDefinition>
+
